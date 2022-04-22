@@ -7,6 +7,7 @@ interface Props {
   Balance:number 
   fio:string
   close:Function  
+  changeBalance:Function
 }
 
 interface State {
@@ -22,6 +23,10 @@ export default class ModalW extends Component <Props,State> {
   setClose=()=>{
     this.props.close(this.state.fio)    
   }
+
+  changeBalance=(value:number)=>{
+    this.props.changeBalance(this.props.Balance+value)
+  }
   
   render() {
     return ( 
@@ -36,9 +41,10 @@ export default class ModalW extends Component <Props,State> {
       >
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
+          <Text style={styles.modalText}>{i18n.t('userdata')}:</Text>
           <TextInput
-            style={styles.input}          
-            placeholder={'ФИО'}
+            style={styles.input}
+            placeholder={i18n.t('fio')}
             defaultValue={this.props.fio}
             onChangeText={ newText=>this.setState({fio:newText}) }
           /> 
@@ -46,14 +52,14 @@ export default class ModalW extends Component <Props,State> {
             <Text style={styles.modalText}>{i18n.t('balance')}:</Text>
             <Pressable
               style={[styles.smallButton]}
-              onPress={() => this.setClose() }
+              onPress={() => this.changeBalance(-100) }
             >
               <Text style={styles.textStyle}>-</Text>
             </Pressable>               
-            <Text style={styles.modalText}>{this.props.Balance}</Text>
+            <Text style={styles.modalText}>{this.props.Balance+' $'}</Text>
             <Pressable
             style={[styles.smallButton]}
-            onPress={() => this.setClose() }
+            onPress={() => this.changeBalance(100) }
           >
             <Text style={styles.textStyle}>+</Text>
           </Pressable>             
@@ -87,7 +93,7 @@ const styles = StyleSheet.create({
     margin: 20,      
     backgroundColor: "#dde",
     borderRadius: 5,
-    padding: 35,
+    padding: 5,
     alignItems: "center",      
     shadowColor: "#000",
     shadowOffset: {
@@ -132,8 +138,7 @@ const styles = StyleSheet.create({
     height: 40,
     margin: 12,
     borderWidth: 1,
-    padding: 10,
-    width:160
-  }
-  
+    padding: 5,
+    width:250
+  }  
 });

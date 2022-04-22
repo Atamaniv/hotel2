@@ -5,7 +5,7 @@ export const DATAru = [
       images: 'https://t-cf.bstatic.com/xdata/images/hotel/square200/266638867.webp?k=abe7c12b9b315a73913e4e81260881300a66b59dd4023d8a4f6e9be5b8260621&o=&s=1',
       about: 'Дом для отпуска Gorgeous Single Home with private pool at Encore Resort EC7463 расположен в Орландо. К услугам гостей частный бассейн и кондиционер.',
       rooms:[
-        {id:1, roomAbout:'2-x комнатный номер люкс с верандой открытый уютный', free:true, cost:200},
+        {id:1, roomAbout:'2-x комнатный номер люкс с верандой открытый уютный. Недалеко бассейн', free:true, cost:200},
         {id:2, roomAbout:'2-x комнатный номер', free:true, cost:300},
         {id:3, roomAbout:'2-x комнатный номер', free:true, cost:400},
         {id:4, roomAbout:'3-x комнатный номер', free:true, cost:500},

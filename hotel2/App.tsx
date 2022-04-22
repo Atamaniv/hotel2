@@ -8,6 +8,7 @@ import LangData from './data/SetDataLang';
 import Rooms from './components/Rooms';
 import ModalW from './components/ModalW';
 
+
 const storeData = async (value:string) => {
   try {
     await AsyncStorage.setItem('@storage_Key', value)
@@ -15,7 +16,6 @@ const storeData = async (value:string) => {
     // saving error
   }
 }
-
 
 interface Props {
 
@@ -78,29 +78,38 @@ class App extends Component < Props , State >  {
     storeData('')
   }
 
-  updatePage=(p:number)=>{
-    alert(p.toString())
+  updatePage=(p:number)=>{    
     this.setState({ Page: p })
   }
 
   closeModal=(fio:string)=>{
     this.setState({modalShow:false});
     this.setState({UserFIO:fio});
-    alert(this.state.UserFIO);
+  }
+  
+  changeBalance=(value:number)=>{
+    this.setState({UserBalance:value});    
   }
 
   render() {       
     return (
       <SafeAreaView  style={styles.container}>
         {!this.state.Auth&&<Login Auth={this.updateData}  />}
-        <ModalW showWin={this.state.modalShow} Balance={this.state.UserBalance} close={this.closeModal} fio={this.state.UserFIO}></ModalW>
+        <ModalW 
+          showWin={this.state.modalShow} 
+          Balance={this.state.UserBalance} 
+          close={this.closeModal} 
+          changeBalance={this.changeBalance} 
+          fio={this.state.UserFIO}>
+        </ModalW>
+
         {this.state.Auth&&this.state.Page==1&& 
           <View style={[styles.row,{paddingTop:30,height:90}]}>
-            <Button title={this.state.UserName} color='#223' 
+            <Button title={this.state.UserName+'  '+this.state.UserBalance+'$'} color='#223' 
                     onPress={()=>this.setState({modalShow:true, modalText:this.state.UserBalance})}/>
           </View>}
         {this.state.Auth&&this.state.Page==1&& <Hotels selectedIdHotels={this.updateIdHotelsShowRooms} lang={i18n.locale} page={this.updatePage}/>}
-        {this.state.Auth&&this.state.Page==2&& <Rooms rooms={LangData.DATA[this.state.IdHotels-1].rooms}  />}
+        {this.state.Auth&&this.state.Page==2&& <Rooms rooms={LangData.DATA[this.state.IdHotels-1].rooms} balance={this.state.UserBalance} />}
         {this.state.Auth&&this.state.Page==1&& <View style={styles.row}><Button title={i18n.t('exit')} color='#223' onPress={()=>this.exit()}/></View>}
         {this.state.Auth&&this.state.Page==2&& <View style={styles.row}><Button title={i18n.t('close')} color='#223' onPress={()=>this.setState({Page:1})}/></View>}
       </SafeAreaView >
@@ -117,7 +126,6 @@ class App extends Component < Props , State >  {
     row: {      
       width:'100%'   
     },
-
   });
 
   export default App;

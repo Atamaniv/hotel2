@@ -9,7 +9,8 @@ interface Props {
     roomAbout:string,
     free:boolean,
     cost:number
-    }[]
+    }[],
+    balance:number
 }
 
 interface State {
@@ -25,9 +26,9 @@ export default class Rooms extends Component <Props,State> {
   render() {
     return (       
         <ScrollView style={styles.scrollview}>
-          <View style={styles.scrollview}>
-          <Text style={styles.headText}>{i18n.t('rooms')}</Text>
-          { this.props.rooms.map((i) => <RoomsItem rooms={i} key={i.id}/>) }
+          <Text style={styles.headText}>{i18n.t('rooms')+'         '+i18n.t('balance')+':'+this.props.balance+'$'}</Text>
+          <View style={styles.container}>          
+           { this.props.rooms.map((i) => <RoomsItem rooms={i} key={i.id} balance={this.props.balance}/>) }
           </View>
         </ScrollView>      
       );
@@ -36,19 +37,19 @@ export default class Rooms extends Component <Props,State> {
 
 const styles = StyleSheet.create({
   scrollview: {
-    width:'100%',
-    backgroundColor:'#ccd' 
-  }, 
+    flex:1,
+    width:'100%'
+  },
   container: {
-    margin:20, 
-    padding:20,
-    borderWidth:1, 
-    borderColor:'#fff', 
-    shadowColor:'#aab',
-    shadowRadius:10, 
-    borderRadius:5,
-    alignItems:'center',
-    backgroundColor:'#99a'
+     flex: 1,
+    alignItems: 'center',    
+    backgroundColor:'#ccd',   
+    flexWrap:'wrap',
+    flexDirection:'row', 
+    alignContent: 'flex-start',
+    width:'100%',
+    justifyContent:'center',
+      
   },
   headText:{
     fontSize:20,
