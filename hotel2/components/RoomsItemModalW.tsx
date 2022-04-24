@@ -22,7 +22,7 @@ export default class RoomsItemModalW extends Component <Props,State> {
   }
  
   setBooked=()=>{
-    alert('Номер забронирован')
+    alert(i18n.t('roombooked'))
     this.props.close()
   }
 
@@ -40,7 +40,7 @@ export default class RoomsItemModalW extends Component <Props,State> {
       <View style={styles.centeredView}>
         
         <View style={styles.modalView}>
-          <Text style={styles.modalText}>Забронировать номер?</Text>
+          <Text style={styles.modalText}>{i18n.t('bookaroom')+'?'}</Text>
         </View>
 
         <View style={{flexDirection:'row'}}>
@@ -48,13 +48,13 @@ export default class RoomsItemModalW extends Component <Props,State> {
           style={[styles.button]}
           onPress={() => this.setBooked()}
          >
-          <Text style={styles.textStyle}>Да</Text>
+          <Text style={styles.textStyle}>{i18n.t('yes')}</Text>
          </Pressable>
          <Pressable
           style={[styles.button]}
           onPress={() => this.setClose() }
          >
-          <Text style={styles.textStyle}>Отмена</Text>
+          <Text style={styles.textStyle}>{i18n.t('cancel')}</Text>
          </Pressable>
          </View>
       </View>

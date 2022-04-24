@@ -18,6 +18,10 @@ i18n.translations = {
         price:'Price',        
         notenoughmoney:'Not enough money',
         hack:'Increase the balance on the main page',
+        bookaroom:'Book a room',
+        roombooked:'Room booked',
+        yes:'Yes',
+        cancel:'Cancel',
       },
   ru: { welcome: 'Здравствуйте' , 
         enterYourName:'Введите ваше имя', 
@@ -35,6 +39,10 @@ i18n.translations = {
         price:'Цена',
         notenoughmoney:'Не достаточно средств',
         hack:'Увеличте баланс на главной странице',
+        bookaroom:'Забронировать номер',
+        roombooked:'Номер забронирован',
+        yes:'Да',
+        cancel:'Отмена',
       },
 };
 // Set the locale once at the beginning of your app.

@@ -42,10 +42,10 @@ export default class RoomsItem extends Component <Props, State> {
       </RoomsItemModalW>
 
       <View>
-      <View style={{width:200, alignItems:'center'}}>
+      <View style={{width:200, alignItems:'center', backgroundColor:'#aab'}}>
         <Image
             source={{ uri: 'https://t-cf.bstatic.com/xdata/images/hotel/square200/241061327.webp?k=0701744b305243b8d79b97d59f2e1940782e27a60985bd5bf14e1e438362b43c&o=&s=1'}}  
-            style={{width:200, height:200,backgroundColor:'#ccf', borderWidth:1, borderColor:'#fff', borderRadius:5  }}        
+            style={styles.images}        
         />  
         <Text style={{margin:10}}>
           {this.props.rooms.roomAbout}
@@ -69,12 +69,9 @@ export default class RoomsItem extends Component <Props, State> {
 
 const styles = StyleSheet.create({
   container: {    
-    padding:2,
-    marginLeft:5,
-    marginRight:5,
-    marginBottom:5,
+    margin:5,
     borderWidth:1, 
-    borderColor:'#fff', 
+    borderColor:'#000', 
     shadowColor:'#aab',
     shadowRadius:10, 
     borderRadius:1,
@@ -82,5 +79,13 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     backgroundColor:'#ccd',
     flexWrap:'wrap'
+  },
+  images:{
+    width:'100%', 
+    height:200, 
+    backgroundColor:'#eee', 
+    borderBottomWidth:1, 
+    borderColor:'#000', 
+    borderRadius:1
   }
 });

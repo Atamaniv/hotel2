@@ -36,7 +36,7 @@ export default class HotelsItem extends Component <Props, State> {
     return <View style={styles.container} >
           <Image
             source={{ uri: this.props.data.images}}  
-            style={{width:200, height:200,backgroundColor:'#ccf', borderWidth:1, borderColor:'#fff', borderRadius:5  }}        
+            style={ styles.images }
           />      
           <Text style={{margin:10, width:180, fontWeight:'bold'}}>{this.props.data.title}</Text>
           <Text style={{margin:20, width:200}}>{this.props.data.about}</Text>
@@ -50,12 +50,12 @@ export default class HotelsItem extends Component <Props, State> {
 const styles = StyleSheet.create({
   container: {
     margin:20, 
-    padding:20,
+    //padding:20,
     borderWidth:1, 
-    borderColor:'#fff', 
-    shadowColor:'#aab',
-    shadowRadius:10, 
-    borderRadius:5,
+    borderColor:'#000', 
+    shadowColor:'#99a',
+    shadowRadius:20, 
+    borderRadius:2,
     alignItems:'center',
     backgroundColor:'#99a'
   },
@@ -65,5 +65,12 @@ const styles = StyleSheet.create({
     borderColor:'#000', 
     borderWidth:1,
     borderRadius:5
+  },
+  images:{ 
+    width:'100%', 
+    height:200,
+    backgroundColor:'#ccf', 
+    borderColor:'#000',
+    borderBottomWidth:1,    
   }
 });

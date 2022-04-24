@@ -44,7 +44,8 @@ export default class Login extends Component <Props,State> {
           onChangeText={ newText=>this.setState({UserName:newText}) }
         /> 
         <TextInput
-          secureTextEntry={true} style={styles.input}
+          style={styles.input}  
+          secureTextEntry={true} 
           placeholder={i18n.t('enterYourPass')}
           onChangeText={ newText=>this.setState({UserPass:newText}) }
         />       
@@ -56,7 +57,7 @@ export default class Login extends Component <Props,State> {
           />    
         </View>}
         <Picker
-          style={{fontSize:14, margin:10, padding:10, width:120, backgroundColor:'#ccd', color:'#888', borderColor:'#000'}}
+          style={{fontSize:14, margin:10, padding:10, width:160, backgroundColor:'#ccd', color:'#888', borderColor:'#000'}}
           selectedValue={this.state.selectedLanguage}
           onValueChange={(itemValue, itemIndex) =>
           this.setSelectedLanguage(itemValue)
@@ -75,11 +76,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#ccd',
-        width:'100%',
+        width:'100%',        
       },
       title: {
         fontSize: 20,
-        fontWeight: 'bold',
+        fontWeight: 'bold',        
       },
       separator: {
         marginVertical: 30,
@@ -91,7 +92,7 @@ const styles = StyleSheet.create({
         margin: 12,
         borderWidth: 1,
         padding: 10,
-        width:160
+        width:160,
       }
   });
 

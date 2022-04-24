@@ -48,13 +48,13 @@ const styles = StyleSheet.create({
     width:'100%'
   },
   container: {
-     flex: 1,
+    flex: 1,
+    width:'100%',
     alignItems: 'center',    
     backgroundColor:'#ccd',   
     flexWrap:'wrap',
     flexDirection:'row', 
-    alignContent: 'flex-start',
-    width:'100%',
+    alignContent: 'flex-start',    
     justifyContent:'center',  
   },
 });
